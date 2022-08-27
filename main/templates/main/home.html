@@ -1,0 +1,26 @@
+{% extends 'main/base.html' %}
+{% block title %}
+Home
+{% endblock %}
+
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+h5 {
+  text-align: left;
+}
+
+</style>
+</head>
+<body>
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+
+
+<ul>
+   <h5 style="color:hwb(15 7% 9% / 0.91);">Instructions are given below : </h5>
+   <h5 style="color:hsla(100, 84%, 46%, 0.91);">Create your own account, Create your own polls and Vote on other's polls</h5>
+<ul>
+{% endblock %}

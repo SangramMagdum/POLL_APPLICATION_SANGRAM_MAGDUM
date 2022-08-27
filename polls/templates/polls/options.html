@@ -1,0 +1,73 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Option List{% endblock %}
+ 
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 5px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 1.5px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #4CAF50;
+}
+
+.button1:hover {
+  background-color: hsl(4, 73%, 51%);
+  color: white;
+}
+
+.button2 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid hsl(4, 73%, 51%);
+}
+
+.button2:hover {
+  background-color: hwb(114 16% 6%);
+  color: white;
+}
+</style>
+</head>
+<body>
+
+</body>
+</html>
+
+	<h2>{{ls.name}}</h2>
+	<form method="post", action="#">
+		{% csrf_token %}
+
+		{% for item in ls.choice_set.all%}
+			<div class="input-group mb-3">
+	  			<input type="text" name="text{{item.id}}" value="{{item.choice_text}}" class="form-control" aria-label="Text input with checkbox">
+			</div>
+		{% endfor %}
+
+		<div class="input-group mb-3">
+	  		<div class="input-group-prepend">
+	  		<button name="add", value="add", type="submit", class="button button1">Add option</button>
+			  
+	  		</div>
+	  		<input type="text" name="new" value="" class="form-control">
+	  		
+		</div>
+		<br>
+		<button name="save", value="save", type="submit", class="button button2">Save Question</button>
+	</form>
+{% endblock %}

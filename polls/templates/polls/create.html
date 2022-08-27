@@ -1,0 +1,54 @@
+{% extends 'main/base.html' %}
+{% block title %}
+Create New List
+{% endblock %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px 5px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #4CAF50;
+}
+
+.button1:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+</style>
+</head>
+<body>
+
+	
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+	<h3 style="color:rgb(32, 223, 38);">Create a new Question</h3>
+	<br>
+	<form method="post", action={% url 'polls:create' %} class="form-group">
+		{% csrf_token %}
+		<div class="input-group mp-3">
+	  		<div class="input-group-append">
+			  <button name="save", type="submit", class="button button1">Create</button>
+			  {{form.name}}
+	  		</div>  
+		</div>
+	</form>
+{% endblock %}
+
